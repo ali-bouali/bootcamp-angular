@@ -14,6 +14,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ManageContactsComponent } from './pages/manage-contacts/manage-contacts.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     HttpClient

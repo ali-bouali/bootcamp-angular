@@ -48,8 +48,8 @@ export class AuthenticationService extends BaseService {
     }
 
     return this.http.request(rb.build({
-      responseType: 'blob',
-      accept: '*/*',
+      responseType: 'json',
+      accept: 'application/json',
       context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
@@ -78,31 +78,31 @@ export class AuthenticationService extends BaseService {
   }
 
   /**
-   * Path part for operation register1
+   * Path part for operation login
    */
-  static readonly Register1Path = '/api/v1/auth/authenticate';
+  static readonly LoginPath = '/api/v1/auth/authenticate';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `register1()` instead.
+   * To access only the response body, use `login()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  register1$Response(params: {
+  login$Response(params: {
     body: AuthenticationRequest
   },
   context?: HttpContext
 
 ): Observable<StrictHttpResponse<AuthenticationResponse>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AuthenticationService.Register1Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, AuthenticationService.LoginPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
 
     return this.http.request(rb.build({
-      responseType: 'blob',
-      accept: '*/*',
+      responseType: 'json',
+      accept: 'application/json',
       context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
@@ -114,18 +114,18 @@ export class AuthenticationService extends BaseService {
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `register1$Response()` instead.
+   * To access the full response (for headers, for example), `login$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  register1(params: {
+  login(params: {
     body: AuthenticationRequest
   },
   context?: HttpContext
 
 ): Observable<AuthenticationResponse> {
 
-    return this.register1$Response(params,context).pipe(
+    return this.login$Response(params,context).pipe(
       map((r: StrictHttpResponse<AuthenticationResponse>) => r.body as AuthenticationResponse)
     );
   }
