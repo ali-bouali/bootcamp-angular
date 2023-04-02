@@ -8,6 +8,7 @@ import {TransactionsComponent} from "./pages/transactions/transactions.component
 import {ContactsComponent} from "./pages/contacts/contacts.component";
 import {ManageContactsComponent} from "./pages/manage-contacts/manage-contacts.component";
 import {NewTransactionComponent} from "./pages/new-transaction/new-transaction.component";
+import {TokenGuardService} from "./services/guard/token-guard/token-guard.service";
 
 const routes: Routes = [
   {
@@ -21,30 +22,37 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    canActivate: [ TokenGuardService ],
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [ TokenGuardService ],
       },
       {
         path: 'transactions',
-        component: TransactionsComponent
+        component: TransactionsComponent,
+        canActivate: [ TokenGuardService ],
       },
       {
         path: 'contacts',
-        component: ContactsComponent
+        component: ContactsComponent,
+        canActivate: [ TokenGuardService ],
       },
       {
         path: 'contacts/manage',
-        component: ManageContactsComponent
+        component: ManageContactsComponent,
+        canActivate: [ TokenGuardService ],
       },
       {
         path: 'contacts/manage/:contactId',
-        component: ManageContactsComponent
+        component: ManageContactsComponent,
+        canActivate: [ TokenGuardService ],
       },
       {
         path: 'transactions/new',
-        component: NewTransactionComponent
+        component: NewTransactionComponent,
+        canActivate: [ TokenGuardService ],
       },
     ]
   },
