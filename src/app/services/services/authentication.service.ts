@@ -16,7 +16,7 @@ import { RegisterRequest } from '../models/register-request';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationControllerService extends BaseService {
+export class AuthenticationService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -42,7 +42,7 @@ export class AuthenticationControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<AuthenticationResponse>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AuthenticationControllerService.RegisterPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, AuthenticationService.RegisterPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -95,7 +95,7 @@ export class AuthenticationControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<AuthenticationResponse>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AuthenticationControllerService.Register1Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, AuthenticationService.Register1Path, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }

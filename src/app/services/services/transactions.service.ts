@@ -15,7 +15,7 @@ import { TransactionResponse } from '../models/transaction-response';
 @Injectable({
   providedIn: 'root',
 })
-export class TransactionControllerService extends BaseService {
+export class TransactionsService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -41,7 +41,7 @@ export class TransactionControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<number>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TransactionControllerService.Save1Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, TransactionsService.Save1Path, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -94,7 +94,7 @@ export class TransactionControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<Array<TransactionResponse>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TransactionControllerService.FindAll1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, TransactionsService.FindAll1Path, 'get');
     if (params) {
       rb.path('user-id', params['user-id'], {});
     }

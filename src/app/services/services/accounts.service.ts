@@ -15,7 +15,7 @@ import { AccountResponse } from '../models/account-response';
 @Injectable({
   providedIn: 'root',
 })
-export class AccountControllerService extends BaseService {
+export class AccountsService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -40,7 +40,7 @@ export class AccountControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<Array<AccountResponse>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AccountControllerService.FindAll4Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AccountsService.FindAll4Path, 'get');
     if (params) {
     }
 
@@ -91,7 +91,7 @@ export class AccountControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<number>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AccountControllerService.Save3Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, AccountsService.Save3Path, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -144,7 +144,7 @@ export class AccountControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<AccountResponse>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AccountControllerService.FindById2Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AccountsService.FindById2Path, 'get');
     if (params) {
       rb.path('account-id', params['account-id'], {});
     }
@@ -197,7 +197,7 @@ export class AccountControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AccountControllerService.Delete1Path, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, AccountsService.Delete1Path, 'delete');
     if (params) {
       rb.path('account-id', params['account-id'], {});
     }

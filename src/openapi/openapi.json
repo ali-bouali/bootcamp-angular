@@ -163,7 +163,7 @@
     "/api/v1/transactions": {
       "post": {
         "tags": [
-          "transaction-controller"
+          "Transactions"
         ],
         "operationId": "save_1",
         "requestBody": {
@@ -234,7 +234,7 @@
     "/api/v1/contacts": {
       "post": {
         "tags": [
-          "contact-controller"
+          "Contacts"
         ],
         "operationId": "save_2",
         "requestBody": {
@@ -305,7 +305,7 @@
     "/api/v1/auth/register": {
       "post": {
         "tags": [
-          "authentication-controller"
+          "Authentication"
         ],
         "operationId": "register",
         "requestBody": {
@@ -375,7 +375,7 @@
     "/api/v1/auth/authenticate": {
       "post": {
         "tags": [
-          "authentication-controller"
+          "Authentication"
         ],
         "operationId": "register_1",
         "requestBody": {
@@ -445,7 +445,7 @@
     "/api/v1/accounts": {
       "get": {
         "tags": [
-          "account-controller"
+          "Accounts"
         ],
         "operationId": "findAll_4",
         "responses": {
@@ -506,7 +506,7 @@
       },
       "post": {
         "tags": [
-          "account-controller"
+          "Accounts"
         ],
         "operationId": "save_3",
         "requestBody": {
@@ -945,7 +945,7 @@
     "/api/v1/transactions/user/{user-id}": {
       "get": {
         "tags": [
-          "transaction-controller"
+          "Transactions"
         ],
         "operationId": "findAll_1",
         "parameters": [
@@ -1082,7 +1082,7 @@
     "/api/v1/contacts/{contact-id}": {
       "get": {
         "tags": [
-          "contact-controller"
+          "Contacts"
         ],
         "operationId": "findById_1",
         "parameters": [
@@ -1153,7 +1153,7 @@
     "/api/v1/contacts/user/{user-id}": {
       "get": {
         "tags": [
-          "contact-controller"
+          "Contacts"
         ],
         "operationId": "findAll_3",
         "parameters": [
@@ -1227,7 +1227,7 @@
     "/api/v1/accounts/{account-id}": {
       "get": {
         "tags": [
-          "account-controller"
+          "Accounts"
         ],
         "operationId": "findById_2",
         "parameters": [
@@ -1296,7 +1296,7 @@
       },
       "delete": {
         "tags": [
-          "account-controller"
+          "Accounts"
         ],
         "operationId": "delete_1",
         "parameters": [
@@ -1360,7 +1360,7 @@
     "/api/v1/contacts/{account-id}": {
       "delete": {
         "tags": [
-          "contact-controller"
+          "Contacts"
         ],
         "operationId": "delete",
         "parameters": [

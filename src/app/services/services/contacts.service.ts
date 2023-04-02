@@ -15,7 +15,7 @@ import { ContactResponse } from '../models/contact-response';
 @Injectable({
   providedIn: 'root',
 })
-export class ContactControllerService extends BaseService {
+export class ContactsService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -41,7 +41,7 @@ export class ContactControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<number>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ContactControllerService.Save2Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ContactsService.Save2Path, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -94,7 +94,7 @@ export class ContactControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<ContactResponse>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ContactControllerService.FindById1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ContactsService.FindById1Path, 'get');
     if (params) {
       rb.path('contact-id', params['contact-id'], {});
     }
@@ -147,7 +147,7 @@ export class ContactControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<Array<ContactResponse>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ContactControllerService.FindAll3Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ContactsService.FindAll3Path, 'get');
     if (params) {
       rb.path('user-id', params['user-id'], {});
     }
@@ -200,7 +200,7 @@ export class ContactControllerService extends BaseService {
 
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ContactControllerService.DeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, ContactsService.DeletePath, 'delete');
     if (params) {
       rb.path('account-id', params['account-id'], {});
     }

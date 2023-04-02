@@ -1,6 +1,6 @@
 export { UsersService } from './services/users.service';
-export { TransactionControllerService } from './services/transaction-controller.service';
-export { ContactControllerService } from './services/contact-controller.service';
-export { AuthenticationControllerService } from './services/authentication-controller.service';
-export { AccountControllerService } from './services/account-controller.service';
+export { TransactionsService } from './services/transactions.service';
+export { ContactsService } from './services/contacts.service';
+export { AuthenticationService } from './services/authentication.service';
+export { AccountsService } from './services/accounts.service';
 export { FakeProductApiService } from './services/fake-product-api.service';

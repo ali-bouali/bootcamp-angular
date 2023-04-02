@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { UsersService } from './services/users.service';
-import { TransactionControllerService } from './services/transaction-controller.service';
-import { ContactControllerService } from './services/contact-controller.service';
-import { AuthenticationControllerService } from './services/authentication-controller.service';
-import { AccountControllerService } from './services/account-controller.service';
+import { TransactionsService } from './services/transactions.service';
+import { ContactsService } from './services/contacts.service';
+import { AuthenticationService } from './services/authentication.service';
+import { AccountsService } from './services/accounts.service';
 import { FakeProductApiService } from './services/fake-product-api.service';
 
 /**
@@ -20,10 +20,10 @@ import { FakeProductApiService } from './services/fake-product-api.service';
   declarations: [],
   providers: [
     UsersService,
-    TransactionControllerService,
-    ContactControllerService,
-    AuthenticationControllerService,
-    AccountControllerService,
+    TransactionsService,
+    ContactsService,
+    AuthenticationService,
+    AccountsService,
     FakeProductApiService,
     ApiConfiguration
   ],
