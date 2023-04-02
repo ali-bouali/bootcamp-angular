@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FirstService} from "../../services/first-service/first.service";
 
 @Component({
   selector: 'app-main',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  constructor(
+    private service: FirstService
+  ) {
+    this.service.fetchAllContacts()
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+        }
+      })
+    ;
+  }
 }

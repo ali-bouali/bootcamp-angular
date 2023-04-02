@@ -13,6 +13,7 @@ import { TransactionsComponent } from './pages/transactions/transactions.compone
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ManageContactsComponent } from './pages/manage-contacts/manage-contacts.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,9 +31,12 @@ import { NewTransactionComponent } from './pages/new-transaction/new-transaction
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
