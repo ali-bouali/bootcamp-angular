@@ -1,24 +1,24 @@
 <div class="container-fluid card login-container">
   <h3 class="text-center mt-3">Register</h3>
   <hr />
-  <div class="alert alert-danger" role="alert">
-    A simple primary alert—check it out!
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsgs.length > 0">
+    <span *ngFor="let err of errorMsgs">{{ err }}<br /></span>
   </div>
   <div class="mb-3">
     <label for="firstname" class="form-label">Firstname</label>
-    <input type="email" id="firstname" class="form-control" placeholder="Exp: Ali">
+    <input [(ngModel)]="registerRequest.firstname" type="email" id="firstname" class="form-control" placeholder="Exp: Ali">
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Lastname</label>
-    <input type="email" id="lastname" class="form-control" placeholder="Exp: Bouali">
+    <input [(ngModel)]="registerRequest.lastname" type="text" id="lastname" class="form-control" placeholder="Exp: Bouali">
   </div>
   <div class="mb-3">
     <label for="login" class="form-label">Email address</label>
-    <input type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
+    <input [(ngModel)]="registerRequest.email" type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password">
+    <input [(ngModel)]="registerRequest.password" type="password" id="password" class="form-control" placeholder="Password">
   </div>
   <div class="d-flex justify-content-between mb-3">
     <div>
@@ -27,8 +27,8 @@
         Login
       </button>
     </div>
-    <button type="button" class="btn btn-primary">
-      <em class="fas fa-sign-in">&nbsp;Sign in</em>
+    <button type="button" class="btn btn-primary" (click)="register()">
+      <em class="fas fa-sign-in">&nbsp;Sign up</em>
     </button>
   </div>
 </div>
