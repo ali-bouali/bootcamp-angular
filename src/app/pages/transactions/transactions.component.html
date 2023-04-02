@@ -1,0 +1,47 @@
+<div>
+
+  <h2 class="mb-3">My transactions</h2>
+  <div class="d-flex justify-content-end mb-3 border-bottom pb-3">
+    <button class="btn btn-success" (click)="newTransaction()">
+      <em class="fas fa-plus-square">&nbsp;</em>
+      New transaction
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>
+          <span class="badge rounded-pill text-bg-success">
+            <em class="fa-solid fa-circle-down"></em>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>
+          <span class="badge rounded-pill text-bg-danger">
+            <em class="fa-solid fa-circle-up"></em>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
