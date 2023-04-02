@@ -1,0 +1,34 @@
+<div class="container-fluid card login-container">
+  <h3 class="text-center mt-3">Register</h3>
+  <hr />
+  <div class="alert alert-danger" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input type="email" id="firstname" class="form-control" placeholder="Exp: Ali">
+  </div>
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input type="email" id="lastname" class="form-control" placeholder="Exp: Bouali">
+  </div>
+  <div class="mb-3">
+    <label for="login" class="form-label">Email address</label>
+    <input type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password">
+  </div>
+  <div class="d-flex justify-content-between mb-3">
+    <div>
+      Already have an account?&nbsp;
+      <button (click)="login()" type="button" class="btn btn-link">
+        Login
+      </button>
+    </div>
+    <button type="button" class="btn btn-primary">
+      <em class="fas fa-sign-in">&nbsp;Sign in</em>
+    </button>
+  </div>
+</div>
