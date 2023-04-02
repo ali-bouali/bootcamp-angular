@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.login-container {
+  width: 500px !important;
+  margin-top: 15%;
+}
+
+.border-right {
+  border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important;
+}
+
+.full-height {
+  height: 95vh;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
