@@ -1,0 +1,34 @@
+<div class="container-fluid card">
+  <h3 class="text-center mt-3">Create contact</h3>
+  <hr />
+  <div class="alert alert-danger" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input type="email" id="firstname" class="form-control" placeholder="Exp: Ali">
+  </div>
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input type="email" id="lastname" class="form-control" placeholder="Exp: Bouali">
+  </div>
+  <div class="mb-3">
+    <label for="login" class="form-label">Email address</label>
+    <input type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
+  </div>
+  <div class="mb-3">
+    <label for="iban" class="form-label">IBAN</label>
+    <input type="text" id="iban" class="form-control" placeholder="Password">
+  </div>
+  <div class="d-flex justify-content-end mb-3">
+    <div>
+      <button type="button" class="btn btn-link mr-3" (click)="cancel()">
+        <em class="fas fa-times"></em>
+        Cancel
+      </button>
+    </div>
+    <button type="button" class="btn btn-danger">
+      <em class="fas fa-save">&nbsp;Save</em>
+    </button>
+  </div>
+</div>
