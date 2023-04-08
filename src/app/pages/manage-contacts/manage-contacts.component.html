@@ -1,24 +1,24 @@
 <div class="container-fluid card">
-  <h3 class="text-center mt-3">Create contact</h3>
+  <h3 class="text-center mt-3">{{ title }}</h3>
   <hr />
-  <div class="alert alert-danger" role="alert">
-    A simple primary alert—check it out!
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsgs.length > 0">
+    <ng-container *ngFor="let err of errorMsgs">{{ err }}<br></ng-container>
   </div>
   <div class="mb-3">
     <label for="firstname" class="form-label">Firstname</label>
-    <input type="email" id="firstname" class="form-control" placeholder="Exp: Ali">
+    <input [(ngModel)]="contactRequest.firstname" type="text" id="firstname" class="form-control" placeholder="Exp: Ali">
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Lastname</label>
-    <input type="email" id="lastname" class="form-control" placeholder="Exp: Bouali">
+    <input [(ngModel)]="contactRequest.lastname" type="text" id="lastname" class="form-control" placeholder="Exp: Bouali">
   </div>
   <div class="mb-3">
     <label for="login" class="form-label">Email address</label>
-    <input type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
+    <input [(ngModel)]="contactRequest.email" type="email" id="login" class="form-control" placeholder="Exp: alibou@mail.com">
   </div>
   <div class="mb-3">
     <label for="iban" class="form-label">IBAN</label>
-    <input type="text" id="iban" class="form-control" placeholder="Password">
+    <input [(ngModel)]="contactRequest.iban" type="text" id="iban" class="form-control" placeholder="IBAN">
   </div>
   <div class="d-flex justify-content-end mb-3">
     <div>
@@ -27,7 +27,7 @@
         Cancel
       </button>
     </div>
-    <button type="button" class="btn btn-danger">
+    <button type="button" class="btn btn-danger" (click)="save()">
       <em class="fas fa-save">&nbsp;Save</em>
     </button>
   </div>
