@@ -10,6 +10,7 @@ export class TokenService {
   saveResponse(response: AuthenticationResponse): void {
     localStorage.setItem('token', response.token as string);
     localStorage.setItem('userId', response.userId as any as string);
+    localStorage.setItem('username', response.username as any as string);
   }
 
   get getToken(): string {
@@ -18,6 +19,24 @@ export class TokenService {
 
   get getUserId(): number {
     return localStorage.getItem('userId') as any as number;
+  }
+
+  get getUsername(): string {
+    return localStorage.getItem('username') as any as string;
+  }
+
+  get userRole(): string {
+    const token = this.getToken;
+    if (token) {
+      const jwtHelper = new JwtHelperService();
+      const decodedToken = jwtHelper.decodeToken(token);
+      return decodedToken.role[0].name === 'ROLE_USER' ? 'CUSTOMER' : 'ADMIN';
+    }
+    return '--';
+  }
+
+  cleanup(): void {
+    localStorage.clear();
   }
 
   get isTokenValid(): boolean {

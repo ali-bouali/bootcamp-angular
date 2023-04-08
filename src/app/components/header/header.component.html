@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-end p-3">
+  <span class="me-3">{{ userName }} ({{ role }})</span>
+  <div class="dropdown">
+    <em class="fas fa-chevron-down cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false"></em>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" routerLink="/transactions">Transactions</a></li>
+      <li><a class="dropdown-item" routerLink="/contacts">Contacts</a></li>
+      <hr>
+      <li><a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</div>

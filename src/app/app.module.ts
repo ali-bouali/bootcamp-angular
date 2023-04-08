@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {FormsModule} from "@angular/forms";
 import {HttpInterceptorService} from "./services/interceptor/http-interceptor.service";
 import { LoaderComponent } from './components/loader/loader.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ContactsComponent,
     ManageContactsComponent,
     NewTransactionComponent,
-    LoaderComponent
+    LoaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
