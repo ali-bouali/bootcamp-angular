@@ -8,6 +8,7 @@ export { AuthenticationRequest } from './models/authentication-request';
 export { AccountRequest } from './models/account-request';
 export { UserResponse } from './models/user-response';
 export { TransactionResponse } from './models/transaction-response';
+export { StatisticsResponse } from './models/statistics-response';
 export { Product } from './models/product';
 export { Rate } from './models/rate';
 export { ContactResponse } from './models/contact-response';

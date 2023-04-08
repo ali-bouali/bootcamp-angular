@@ -9,6 +9,7 @@ import { TransactionsService } from './services/transactions.service';
 import { ContactsService } from './services/contacts.service';
 import { AuthenticationService } from './services/authentication.service';
 import { AccountsService } from './services/accounts.service';
+import { StatisticsService } from './services/statistics.service';
 import { FakeProductApiService } from './services/fake-product-api.service';
 
 /**
@@ -24,6 +25,7 @@ import { FakeProductApiService } from './services/fake-product-api.service';
     ContactsService,
     AuthenticationService,
     AccountsService,
+    StatisticsService,
     FakeProductApiService,
     ApiConfiguration
   ],
