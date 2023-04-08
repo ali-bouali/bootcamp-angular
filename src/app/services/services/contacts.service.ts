@@ -130,6 +130,59 @@ export class ContactsService extends BaseService {
   }
 
   /**
+   * Path part for operation delete
+   */
+  static readonly DeletePath = '/api/v1/contacts/{contact-id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `delete()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  delete$Response(params: {
+    'contact-id': number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ContactsService.DeletePath, 'delete');
+    if (params) {
+      rb.path('contact-id', params['contact-id'], {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `delete$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  delete(params: {
+    'contact-id': number;
+  },
+  context?: HttpContext
+
+): Observable<void> {
+
+    return this.delete$Response(params,context).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
    * Path part for operation findAll3
    */
   static readonly FindAll3Path = '/api/v1/contacts/user/{user-id}';
@@ -179,59 +232,6 @@ export class ContactsService extends BaseService {
 
     return this.findAll3$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<ContactResponse>>) => r.body as Array<ContactResponse>)
-    );
-  }
-
-  /**
-   * Path part for operation delete
-   */
-  static readonly DeletePath = '/api/v1/contacts/{account-id}';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `delete()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  delete$Response(params: {
-    'account-id': number;
-  },
-  context?: HttpContext
-
-): Observable<StrictHttpResponse<void>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ContactsService.DeletePath, 'delete');
-    if (params) {
-      rb.path('account-id', params['account-id'], {});
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'text',
-      accept: '*/*',
-      context: context
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `delete$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  delete(params: {
-    'account-id': number;
-  },
-  context?: HttpContext
-
-): Observable<void> {
-
-    return this.delete$Response(params,context).pipe(
-      map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
