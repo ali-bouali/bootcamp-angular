@@ -12,6 +12,7 @@ import {ContactResponse} from "../../services/models/contact-response";
 export class ContactsComponent implements OnInit{
 
   contacts: ContactResponse[] = [];
+  private contactIdToDelete: number | undefined;
 
   constructor(
     private router: Router,
@@ -36,4 +37,26 @@ export class ContactsComponent implements OnInit{
       });
   }
 
+  editContact(id: number | undefined) {
+    this.router.navigate(['contacts', 'manage', id]);
+  }
+
+  delete(id: number | undefined) {
+    // this.contactIdToDelete = id;
+  }
+
+  cancelDelete() {
+    this.contactIdToDelete = undefined;
+  }
+
+  confirmDelete() {
+    if (this.contactIdToDelete) {
+      this.contactsService.delete({'contact-id': this.contactIdToDelete})
+        .subscribe({
+          next: () => {
+            this.fetchAllContacts();
+          }
+        });
+    }
+  }
 }
