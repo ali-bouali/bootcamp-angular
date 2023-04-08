@@ -13,8 +13,9 @@ import { TransactionsComponent } from './pages/transactions/transactions.compone
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ManageContactsComponent } from './pages/manage-contacts/manage-contacts.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {HttpInterceptorService} from "./services/interceptor/http-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,11 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
     HttpClient
   ],
   bootstrap: [AppComponent]
