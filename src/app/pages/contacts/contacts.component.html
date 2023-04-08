@@ -18,11 +18,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>ddd</td>
+    <tr *ngFor="let contact of contacts">
+      <th scope="row">{{ contact.firstname }}</th>
+      <td>{{ contact.lastname }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.iban }}</td>
       <td class="text-center">
         <em class="fas fa-pencil cursor-pointer" style="color: #0d6efd;">&nbsp;</em>
         <span>&nbsp;|&nbsp;</span>
