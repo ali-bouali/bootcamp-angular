@@ -16,3 +16,16 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.overlay {
+  height: 99vh;
+  position: absolute;
+  width: 100%;
+  z-index: 5000;
+  background-color: #0000005e;
+  top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
