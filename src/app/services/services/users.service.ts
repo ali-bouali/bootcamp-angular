@@ -399,4 +399,57 @@ export class UsersService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation getAccountBalance
+   */
+  static readonly GetAccountBalancePath = '/api/v1/users/account/balance/{user-id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getAccountBalance()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAccountBalance$Response(params: {
+    'user-id': number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UsersService.GetAccountBalancePath, 'get');
+    if (params) {
+      rb.path('user-id', params['user-id'], {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getAccountBalance$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAccountBalance(params: {
+    'user-id': number;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.getAccountBalance$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
 }
