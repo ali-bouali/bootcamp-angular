@@ -17,30 +17,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+      <tr *ngFor="let trs of transactions">
+        <td>{{ trs.transactionDate }}</td>
+        <td>{{ trs.amount }}</td>
+        <td>{{ trs.destinationIban }}</td>
         <td>
-          <span class="badge rounded-pill text-bg-success">
-            <em class="fa-solid fa-circle-down"></em>
+          <span class="badge rounded-pill " [ngClass]="{'text-bg-success': trs.type === 'DEPOSIT', 'text-bg-danger': trs.type === 'TRANSFERT' }">
+            <em class="fa-solid " [class.fa-circle-down]="trs.type === 'TRANSFERT'"></em>
+            <em class="fa-solid " [class.fa-circle-up]="trs.type === 'DEPOSIT'"></em>
           </span>
         </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>
-          <span class="badge rounded-pill text-bg-danger">
-            <em class="fa-solid fa-circle-up"></em>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
       </tr>
     </tbody>
   </table>
