@@ -1,0 +1,40 @@
+<div>
+
+  <h2 class="mb-3">My transactions</h2>
+  <div class="d-flex justify-content-end mb-3 border-bottom pb-3">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="show" role="switch" checked (click)="switchList()" [(ngModel)]="inActiveCustomersDisplayed">
+      <label class="form-check-label" for="show">{{ inActiveCustomersDisplayed ? 'Show active customers' : 'Show inactive customers' }}</label>
+    </div>
+
+  </div>
+  <h3>{{ inActiveCustomersDisplayed ? 'Showing inactive customers' : 'Showing active customer' }}</h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">IBAN</th>
+      <th scope="col">Active</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cust of customers">
+      <td>{{ cust.firstname }}</td>
+      <td>{{ cust.lastname }}</td>
+      <td>{{ cust.iban }}</td>
+      <td>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            [(ngModel)]="cust.active"
+            (change)="updateUserState(cust.active, cust.id)"
+          >
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
