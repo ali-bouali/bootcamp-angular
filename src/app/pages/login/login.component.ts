@@ -33,7 +33,11 @@ export class LoginComponent {
     ).subscribe({
       next: (response) => {
         this.tokenService.saveResponse(response);
-        this.router.navigate(['dashboard']);
+        if (this.tokenService.isAdmin) {
+          this.router.navigate(['admin']);
+        } else {
+          this.router.navigate(['dashboard']);
+        }
       },
       error: (err) => {
         console.log(err);
