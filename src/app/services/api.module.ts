@@ -11,6 +11,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AccountsService } from './services/accounts.service';
 import { StatisticsService } from './services/statistics.service';
 import { FakeProductApiService } from './services/fake-product-api.service';
+import { AdminService } from './services/admin.service';
 
 /**
  * Module that provides all services and configuration.
@@ -27,6 +28,7 @@ import { FakeProductApiService } from './services/fake-product-api.service';
     AccountsService,
     StatisticsService,
     FakeProductApiService,
+    AdminService,
     ApiConfiguration
   ],
 })
