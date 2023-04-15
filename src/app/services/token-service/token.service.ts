@@ -35,6 +35,10 @@ export class TokenService {
     return '--';
   }
 
+  get isAdmin(): boolean {
+    return this.userRole === 'ADMIN';
+  }
+
   cleanup(): void {
     localStorage.clear();
   }
