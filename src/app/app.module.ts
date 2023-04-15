@@ -18,6 +18,10 @@ import {FormsModule} from "@angular/forms";
 import {HttpInterceptorService} from "./services/interceptor/http-interceptor.service";
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminMainComponent } from './admin/admin-main/admin-main.component';
+import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
+import { CustomersComponent } from './admin/customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { HeaderComponent } from './components/header/header.component';
     ManageContactsComponent,
     NewTransactionComponent,
     LoaderComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminDashboardComponent,
+    AdminMainComponent,
+    AccessDeniedComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
