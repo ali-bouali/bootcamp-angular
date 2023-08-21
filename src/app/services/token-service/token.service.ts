@@ -35,6 +35,16 @@ export class TokenService {
     return '--';
   }
 
+  get isActive(): boolean {
+    const token = this.getToken;
+    if (token) {
+      const jwtHelper = new JwtHelperService();
+      const decodedToken = jwtHelper.decodeToken(token);
+      return decodedToken.active;
+    }
+    return false;
+  }
+
   get isAdmin(): boolean {
     return this.userRole === 'ADMIN';
   }

@@ -22,6 +22,10 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
 import { CustomersComponent } from './admin/customers/customers.component';
+import { RegisterSuccessComponent } from './pages/register-success/register-success.component';
+import { InactiveAccountComponent } from './pages/inactive-account/inactive-account.component';
+import {ApiModule} from "./services/api.module";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -41,13 +45,18 @@ import { CustomersComponent } from './admin/customers/customers.component';
     AdminDashboardComponent,
     AdminMainComponent,
     AccessDeniedComponent,
-    CustomersComponent
+    CustomersComponent,
+    RegisterSuccessComponent,
+    InactiveAccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ApiModule.forRoot({
+      rootUrl: environment.api_base_url
+    })
   ],
   providers: [
     {

@@ -14,6 +14,9 @@ import {AdminDashboardComponent} from "./admin/admin-dashboard/admin-dashboard.c
 import {AccessDeniedComponent} from "./pages/access-denied/access-denied.component";
 import {AdminGuardService} from "./services/guard/admin-guard/admin-guard.service";
 import {CustomersComponent} from "./admin/customers/customers.component";
+import {ActiveGuardService} from "./services/guard/active-guard/active-guard.service";
+import {RegisterSuccessComponent} from "./pages/register-success/register-success.component";
+import {InactiveAccountComponent} from "./pages/inactive-account/inactive-account.component";
 
 const routes: Routes = [
   {
@@ -29,56 +32,64 @@ const routes: Routes = [
     component: AccessDeniedComponent
   },
   {
+    path: 'register-success',
+    component: RegisterSuccessComponent
+  },
+  {
+    path: 'inactive-account',
+    component: InactiveAccountComponent
+  },
+  {
     path: 'admin',
     component: AdminMainComponent,
-    canActivate: [ TokenGuardService, AdminGuardService ],
+    canActivate: [ TokenGuardService, AdminGuardService, ActiveGuardService ],
     children: [
       {
         path: '',
         component: AdminDashboardComponent,
-        canActivate: [ TokenGuardService, AdminGuardService ],
+        canActivate: [ TokenGuardService, AdminGuardService, ActiveGuardService ],
       },
       {
         path: 'customers',
         component: CustomersComponent,
-        canActivate: [ TokenGuardService, AdminGuardService ],
+        canActivate: [ TokenGuardService, AdminGuardService, ActiveGuardService ],
       }
     ]
   },
   {
     path: '',
     component: MainComponent,
-    canActivate: [ TokenGuardService ],
+    canActivate: [ TokenGuardService, ActiveGuardService ],
     children: [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
       {
         path: 'transactions',
         component: TransactionsComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
       {
         path: 'contacts',
         component: ContactsComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
       {
         path: 'contacts/manage',
         component: ManageContactsComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
       {
         path: 'contacts/manage/:contactId',
         component: ManageContactsComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
       {
         path: 'transactions/new',
         component: NewTransactionComponent,
-        canActivate: [ TokenGuardService ],
+        canActivate: [ TokenGuardService, ActiveGuardService ],
       },
     ]
   },
