@@ -1,4 +1,4 @@
-name: Bootcamp CI/CD
+name: Bootcamp UI CI/CD
 
 on:
   push:
