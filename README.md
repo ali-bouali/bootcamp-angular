@@ -1,3 +1,7 @@
+# Build status
+[![Bootcamp UI CI/CD](https://github.com/ali-bouali/bootcamp-angular/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ali-bouali/bootcamp-angular/actions/workflows/ci-cd.yml)
+
+
 # BanqueUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
